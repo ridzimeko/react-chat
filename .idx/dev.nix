@@ -2,17 +2,27 @@
 # see: https://developers.google.com/idx/guides/customize-idx-env
 { pkgs, ... }: {
   # Which nixpkgs channel to use.
-  channel = "stable-24.05"; # or "unstable"
+  channel = "stable-25.05"; # or "unstable"
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.nodejs_20
+    pkgs.nodejs_22
+    pkgs.pnpm
   ];
   # Sets environment variables in the workspace
-  env = {};
+  env = { };
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       # "vscodevim.vim"
+      "esbenp.prettier-vscode"
+      "dbaeumer.vscode-eslint"
+      # "bradlc.vscode-tailwindcss"
+      "dsznajder.es7-react-js-snippets"
+      "DavidAnson.vscode-markdownlint"
+      "EditorConfig.EditorConfig"
+      "mikestead.dotenv"
+      "streetsidesoftware.code-spell-checker"
+      "usernamehw.errorlens"
     ];
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
@@ -28,7 +38,7 @@
       enable = true;
       previews = {
         web = {
-          command = ["npm" "run" "dev" "--" "--port" "$PORT" "--host" "0.0.0.0"];
+          command = [ "npm" "run" "dev" "--" "--port" "$PORT" "--host" "0.0.0.0" ];
           manager = "web";
         };
       };
