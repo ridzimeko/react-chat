@@ -1,8 +1,12 @@
+import { AbsoluteCenter } from '@chakra-ui/react'
 import React from 'react'
+import { Outlet } from 'react-router'
 
 function AuthLayout() {
   return (
-    <div>AuthLayout</div>
+    <AbsoluteCenter>
+      <Outlet />
+    </AbsoluteCenter>
   )
 }
 
